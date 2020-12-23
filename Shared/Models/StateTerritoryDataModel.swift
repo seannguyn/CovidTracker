@@ -45,6 +45,28 @@ public struct StateTerritoryDataModel: Codable, Identifiable {
     }
     let deaths: Int64
     let recovered: Int64
+    var coordinates: (lat: Double, long: Double) {
+        switch stateCode {
+        case "ACT":
+            return (Double(-35.3546004), Double(149.2113468))
+        case "NSW":
+            return (Double(-31.840233), Double(145.612793))
+        case "NT":
+            return (Double(-19.491411), Double(132.550964))
+        case "QLD":
+            return (Double(-20.917574), Double(142.702789))
+        case "SA":
+            return (Double(-30.000233), Double(136.209152))
+        case "TAS":
+            return (Double(-40.83292234), Double(145.1166613))
+        case "VIC":
+            return (Double(-37.020100), Double(144.964600))
+        case "WA":
+            return (Double(-25.042261), Double(117.793221))
+        default:
+            return (Double(0),Double(0))
+        }
+    }
     
     init?(json: [String: Any]) throws {
         guard let province = json["province"] as? String,

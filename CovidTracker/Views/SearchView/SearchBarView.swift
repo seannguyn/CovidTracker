@@ -40,15 +40,19 @@ struct SearchBarView: View {
                     }
                 )
                 .onTapGesture {
-                    self.isEditing = true
+                    withAnimation {
+                        self.isEditing = true
+                    }
                 }
             
             if self.isEditing {
                 Button(action: {
-                    self.isEditing = false
-                    self.searchText = ""
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                    showSearchBar = false
+                    withAnimation {
+                        self.isEditing = false
+                        self.searchText = ""
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        showSearchBar = false
+                    }
                 }){
                     Text("Cancel")
                 }

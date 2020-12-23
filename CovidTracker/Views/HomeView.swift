@@ -20,7 +20,7 @@ struct HomeView: View {
                 Text("Data")
               }
             
-            CovidMapView()
+            CovidMapContainerView()
               .tabItem {
                  Image(systemName: "map.fill")
                  Text("Map")

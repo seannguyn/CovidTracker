@@ -59,7 +59,9 @@ struct CovidDataView: View {
                                 }
                                 ToolbarItem(placement: .navigationBarTrailing) { // <3>
                                     Image(systemName: "magnifyingglass").onTapGesture {
-                                        self.showSearchBar.toggle()
+                                        withAnimation {
+                                            self.showSearchBar.toggle()
+                                        }
                                     }
                                 }
                             }
